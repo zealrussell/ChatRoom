@@ -2,11 +2,17 @@
 #define CHATROOM_H
 
 #include <QWidget>
+#include <QMessageBox>
+#include <QDateTime>
 #include <QTcpSocket>
 #include <QString>
 #include <QByteArray>
-#include <QDateTime>
-#include <QMessageBox>
+#include <QDataStream>
+#include <QList>
+#include <QStringList>
+#include <QDebug>
+#include <QStringListModel>
+#include "MyMessage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ChatRoom; }
@@ -21,20 +27,27 @@ public:
     ~ChatRoom();
 
 private slots:
-    void connectToServer();
+
+    void on_connectBtn_clicked();
 
     void on_clearBtn_clicked();  //清除按钮
 
     void on_sendBtn_clicked();   //发送按钮
 
-    void readMessage();           //接受信息
+    void connectToServer();
 
-    void on_connectBtn_clicked();
+    void slotRevMessage();           //接受信息
+
+    void registerUsername();
 
 private:
     Ui::ChatRoom *ui;
+    QTime *time;
     QTcpSocket *socket;
     bool connectState;
+    int count;
     QString username;
+    QStringList usernameList;
+
 };
 #endif // CHATROOM_H

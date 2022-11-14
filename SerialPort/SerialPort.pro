@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,14 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    chatroom.cpp
+    myport.cpp
 
 HEADERS += \
-    MyMessage.h \
-    chatroom.h
+    myport.h
 
 FORMS += \
-    chatroom.ui
+    myport.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

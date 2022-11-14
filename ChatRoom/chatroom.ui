@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
+    <width>970</width>
     <height>699</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>951</width>
+     <width>941</width>
      <height>671</height>
     </rect>
    </property>
@@ -196,6 +196,26 @@
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>649</x>
+      <y>9</y>
+      <width>281</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <widget class="QListView" name="usernameListView">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>281</width>
+       <height>641</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

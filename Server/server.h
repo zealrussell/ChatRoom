@@ -5,6 +5,13 @@
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QThread>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QString>
+#include <QTime>
+#include <QStringList>
+#include <QMap>
+#include "recvmsg.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Server; }
@@ -17,16 +24,21 @@ class Server : public QWidget
 public:
     Server(QWidget *parent = nullptr);
     ~Server();
-    void broadcastMsg(QString msg);
-    void broadcastNum(int number);
+    void slotBroadcastMsg(QTcpSocket *socket, ChatMessage msg);
+    void slotBroadcastUser();
 private:
     Ui::Server *ui;
-    QTcpSocket *socket;
+
+    // QTcpSocket *socket;
     QTcpServer *server;
+    QTime time;
     int count;
     QList<QTcpSocket *> socketList;
-
-signals:
-    void userNum(int num);
+    QMap<QTcpSocket *, QString> socketMap;
+    ChatMessage numMessage;
+    ChatMessage chatMessage;
+    // 数据库操作
+    QSqlDatabase db;
+    QSqlQuery sql;
 };
 #endif // SERVER_H

@@ -10,14 +10,13 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    chatroom.cpp
+    widget.cpp
 
 HEADERS += \
-    MyMessage.h \
-    chatroom.h
+    widget.h
 
 FORMS += \
-    chatroom.ui
+    widget.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

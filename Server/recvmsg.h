@@ -3,7 +3,8 @@
 
 #include <QThread>
 #include <QTcpSocket>
-#include <QTime>
+#include "chatmessage.h"
+#include <QDebug>
 
 class RecvMsg : public QThread
 {
@@ -16,8 +17,9 @@ protected:
 
 private:
     QTcpSocket *socket;
+
 signals:
-    void over(QString msg);
+    void signalOver(QTcpSocket *socket, ChatMessage myMessage);
 };
 
 #endif // RECVMSG_H
